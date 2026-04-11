@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BiteQuest — Find Recipes by Ingredient</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Background blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">🍳</span>
+        <span class="logo-text">Bite<em>Quest</em></span>
+      </div>
+      <p class="tagline">Type what's in your fridge. Discover what's for dinner.</p>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+      <div class="search-card">
+        <label class="search-label">What ingredients do you have?</label>
+        <div class="search-row">
+          <div class="input-wrapper">
+            <span class="input-icon">🥦</span>
+            <input
+              type="text"
+              id="ingredientInput"
+              class="search-input"
+              placeholder="e.g. egg, tomato, bread, chicken..."
+              autocomplete="off"
+            />
+          </div>
+          <button class="search-btn" id="searchBtn" onclick="searchRecipes()">
+            <span class="btn-text">Find Recipes</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+        <div class="tag-suggestions">
+          <span class="suggest-label">Try:</span>
+          <button class="tag" onclick="fillAndSearch('chicken')">chicken</button>
+          <button class="tag" onclick="fillAndSearch('pasta')">pasta</button>
+          <button class="tag" onclick="fillAndSearch('egg')">egg</button>
+          <button class="tag" onclick="fillAndSearch('salmon')">salmon</button>
+          <button class="tag" onclick="fillAndSearch('potato')">potato</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Status / Loading -->
+    <div class="status-area" id="statusArea"></div>
+
+    <!-- Results -->
+    <section class="results-section" id="resultsSection">
+      <div class="results-header" id="resultsHeader"></div>
+      <div class="recipes-grid" id="recipesGrid"></div>
+    </section>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal" id="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
