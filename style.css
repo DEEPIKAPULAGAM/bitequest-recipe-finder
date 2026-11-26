@@ -1,5 +1,4 @@
-
-/*   RESET & BASE */
+/* Basic styling and reset */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -32,7 +31,8 @@ body{
   overflow-x: hidden;
 }
 
-/*   ANIMATED BACKGROUND BLOBS */
+
+/* Animated background shapes */
 
 .bg-blob {
   position: fixed;
@@ -43,6 +43,7 @@ body{
   z-index: 0;
   animation: blobFloat 12s ease-in-out infinite alternate;
 }
+
 .blob-1{
   width:520px;
   height:520px;
@@ -50,6 +51,7 @@ body{
   top:-120px;
   left:-160px;
 }
+
 .blob-2{
   width:420px;
   height:420px;
@@ -57,6 +59,7 @@ body{
   bottom:-120px;
   right:-120px;
 }
+
 .blob-3{
   width:320px;
   height:320px;
@@ -65,24 +68,25 @@ body{
   left:55%;
   opacity:0.18;
 }
+
 @keyframes blobFloat{
 
-0%{
-transform:translate(0,0) scale(1);
+  0%{
+    transform:translate(0,0) scale(1);
+  }
+
+  50%{
+    transform:translate(40px,30px) scale(1.08);
+  }
+
+  100%{
+    transform:translate(-20px,40px) scale(1.05);
+  }
+
 }
 
-50%{
-transform:translate(40px,30px) scale(1.08);
-}
 
-100%{
-transform:translate(-20px,40px) scale(1.05);
-}
-
-}
-
-
-/*   LAYOUT */
+/* Main container */
 
 .container {
   position: relative;
@@ -93,7 +97,7 @@ transform:translate(-20px,40px) scale(1.05);
 }
 
 
-/*   HEADER */
+/* Header and logo */
 
 .header {
   text-align: center;
@@ -106,7 +110,9 @@ transform:translate(-20px,40px) scale(1.05);
   gap: 10px;
   margin-bottom: 14px;
 }
+
 .logo-icon { font-size: 2rem; }
+
 .logo-text {
   font-family: 'Playfair Display', serif;
   font-size: 2.4rem;
@@ -114,6 +120,7 @@ transform:translate(-20px,40px) scale(1.05);
   color: var(--dark);
   letter-spacing: -1px;
 }
+
 .logo-text em {
   font-style: italic;
   color: var(--orange);
@@ -127,7 +134,7 @@ transform:translate(-20px,40px) scale(1.05);
 }
 
 
-/*   SEARCH CARD */
+/* Search section */
 
 .search-section { margin-bottom: 36px; }
 
@@ -159,6 +166,7 @@ transform:translate(-20px,40px) scale(1.05);
   flex: 1;
   position: relative;
 }
+
 .input-icon {
   position: absolute;
   left: 16px;
@@ -167,6 +175,7 @@ transform:translate(-20px,40px) scale(1.05);
   font-size: 1.2rem;
   pointer-events: none;
 }
+
 .search-input {
   width: 100%;
   padding: 16px 18px 16px 48px;
@@ -179,7 +188,9 @@ transform:translate(-20px,40px) scale(1.05);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
+
 .search-input::placeholder { color: var(--muted); }
+
 .search-input:focus {
   border-color: var(--orange);
   box-shadow: 0 0 0 4px rgba(232,98,42,0.12);
@@ -202,15 +213,21 @@ transform:translate(-20px,40px) scale(1.05);
   transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
   box-shadow: 0 4px 20px rgba(232,98,42,0.35);
 }
+
 .search-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(232,98,42,0.45);
 }
+
 .search-btn:active { transform: translateY(0); }
+
 .btn-arrow { font-size: 1.1rem; transition: transform 0.2s; }
+
 .search-btn:hover .btn-arrow { transform: translateX(4px); }
 
-/* Quick Tags */
+
+/* Suggested ingredient buttons */
+
 .tag-suggestions {
   margin-top: 18px;
   display: flex;
@@ -218,6 +235,7 @@ transform:translate(-20px,40px) scale(1.05);
   flex-wrap: wrap;
   gap: 8px;
 }
+
 .suggest-label {
   font-size: 0.82rem;
   color: var(--muted);
@@ -225,6 +243,7 @@ transform:translate(-20px,40px) scale(1.05);
   letter-spacing: 0.08em;
   font-weight: 500;
 }
+
 .tag {
   padding: 5px 14px;
   background: var(--warm);
@@ -237,6 +256,7 @@ transform:translate(-20px,40px) scale(1.05);
   transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.12s;
   font-weight: 500;
 }
+
 .tag:hover {
   background: var(--orange);
   color: #fff;
@@ -245,7 +265,7 @@ transform:translate(-20px,40px) scale(1.05);
 }
 
 
-/*   STATUS AREA */
+/* Loading animation and status messages */
 
 .status-area {
   text-align: center;
@@ -254,32 +274,39 @@ transform:translate(-20px,40px) scale(1.05);
   align-items: center;
   justify-content: center;
 }
+
 .loader {
   display: flex;
   gap: 8px;
   align-items: center;
 }
+
 .loader-dot {
   width: 10px; height: 10px;
   background: var(--orange);
   border-radius: 50%;
   animation: bounce 1s ease-in-out infinite;
 }
+
 .loader-dot:nth-child(2) { animation-delay: 0.15s; }
+
 .loader-dot:nth-child(3) { animation-delay: 0.3s; }
+
 @keyframes bounce {
   0%, 100% { transform: translateY(0); opacity: 0.4; }
   50%       { transform: translateY(-10px); opacity: 1; }
 }
+
 .status-msg {
   font-size: 1rem;
   color: var(--muted);
   font-weight: 300;
 }
+
 .status-msg.error { color: #c0392b; }
 
 
-/*   RESULTS HEADER */
+/* Results header */
 
 .results-header {
   display: flex;
@@ -287,12 +314,14 @@ transform:translate(-20px,40px) scale(1.05);
   gap: 12px;
   margin-bottom: 28px;
 }
+
 .results-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--dark);
 }
+
 .results-count {
   font-size: 0.9rem;
   color: var(--muted);
@@ -303,7 +332,7 @@ transform:translate(-20px,40px) scale(1.05);
 }
 
 
-/*   RECIPE GRID */
+/* Recipe grid layout */
 
 .recipes-grid {
   display: grid;
@@ -312,7 +341,7 @@ transform:translate(-20px,40px) scale(1.05);
 }
 
 
-/*   RECIPE CARD */
+/* Recipe card design */
 
 .recipe-card {
   background: var(--card-bg);
@@ -326,10 +355,12 @@ transform:translate(-20px,40px) scale(1.05);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
   animation: cardIn 0.4s ease both;
 }
+
 @keyframes cardIn {
   from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
 .recipe-card:hover {
   transform: translateY(-6px) scale(1.015);
   box-shadow: 0 18px 50px rgba(92,61,30,0.18);
@@ -340,12 +371,14 @@ transform:translate(-20px,40px) scale(1.05);
   height: 200px;
   overflow: hidden;
 }
+
 .card-img-wrap img {
   width: 100%; height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
   display: block;
 }
+
 .recipe-card:hover .card-img-wrap img { transform: scale(1.06); }
 
 .card-badge {
@@ -365,6 +398,7 @@ transform:translate(-20px,40px) scale(1.05);
 .card-body {
   padding: 20px 22px 22px;
 }
+
 .card-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.15rem;
@@ -373,12 +407,14 @@ transform:translate(-20px,40px) scale(1.05);
   margin-bottom: 8px;
   line-height: 1.35;
 }
+
 .card-meta {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 14px;
 }
+
 .meta-pill {
   font-size: 0.78rem;
   color: var(--brown);
@@ -387,6 +423,7 @@ transform:translate(-20px,40px) scale(1.05);
   border-radius: 999px;
   font-weight: 500;
 }
+
 .card-cta {
   display: inline-flex;
   align-items: center;
@@ -396,10 +433,11 @@ transform:translate(-20px,40px) scale(1.05);
   color: var(--orange);
   transition: gap 0.18s;
 }
+
 .recipe-card:hover .card-cta { gap: 10px; }
 
 
-/*   MODAL */
+/* Recipe details popup */
 
 .modal-overlay {
   position: fixed;
@@ -414,7 +452,9 @@ transform:translate(-20px,40px) scale(1.05);
   padding: 20px;
   animation: fadeIn 0.2s ease;
 }
+
 .modal-overlay.open { display: flex; }
+
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .modal {
@@ -428,6 +468,7 @@ transform:translate(-20px,40px) scale(1.05);
   box-shadow: 0 32px 80px rgba(28,18,9,0.35);
   animation: slideUp 0.28s cubic-bezier(.22,1,.36,1);
 }
+
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(36px) scale(0.97); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
@@ -449,6 +490,7 @@ transform:translate(-20px,40px) scale(1.05);
   transition: background 0.18s, color 0.18s;
   z-index: 5;
 }
+
 .modal-close:hover { background: var(--orange); color: #fff; }
 
 .modal-hero {
@@ -469,6 +511,7 @@ transform:translate(-20px,40px) scale(1.05);
   font-weight: 600;
   margin-bottom: 8px;
 }
+
 .modal-title {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
@@ -488,12 +531,16 @@ transform:translate(-20px,40px) scale(1.05);
   border-bottom: 2px solid var(--warm);
 }
 
+
+/* Ingredients and cooking instructions */
+
 .ingredients-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   list-style: none;
 }
+
 .ingredients-list li {
   background: var(--warm);
   border: 1.5px solid rgba(92,61,30,0.12);
@@ -511,12 +558,16 @@ transform:translate(-20px,40px) scale(1.05);
   white-space: pre-line;
 }
 
+
+/* YouTube and full recipe links */
+
 .modal-links {
   display: flex;
   gap: 12px;
   margin-top: 28px;
   flex-wrap: wrap;
 }
+
 .link-btn {
   display: inline-flex;
   align-items: center;
@@ -529,11 +580,14 @@ transform:translate(-20px,40px) scale(1.05);
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
 }
+
 .link-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
 .link-btn.primary {
   background: linear-gradient(135deg, var(--orange), var(--orange2));
   color: #fff;
 }
+
 .link-btn.secondary {
   background: var(--warm);
   color: var(--brown);
@@ -541,31 +595,36 @@ transform:translate(-20px,40px) scale(1.05);
 }
 
 
-/*   EMPTY STATE */
+/* Empty results styling */
 
 .empty-state {
   text-align: center;
   padding: 60px 20px;
   color: var(--muted);
 }
+
 .empty-icon { font-size: 3.5rem; margin-bottom: 16px; }
+
 .empty-state h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
   color: var(--dark);
   margin-bottom: 8px;
 }
+
 .empty-state p { font-size: 0.95rem; }
 
 
-/*   SCROLLBAR */
+/* Popup scrollbar */
 
 .modal::-webkit-scrollbar { width: 5px; }
+
 .modal::-webkit-scrollbar-track { background: transparent; }
+
 .modal::-webkit-scrollbar-thumb { background: var(--orange2); border-radius: 4px; }
 
 
-/*   RESPONSIVE */
+/* Responsive design for mobile screens */
 
 @media (max-width: 640px) {
   .search-card { padding: 24px 18px 20px; }
@@ -576,14 +635,18 @@ transform:translate(-20px,40px) scale(1.05);
   .modal-body { padding: 20px 20px 28px; }
   .modal-title { font-size: 1.5rem; }
 }
+
+
+/* Background texture */
+
 body::after{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background-image:url("https://www.transparenttextures.com/patterns/noise.png");
-opacity:0.03;
-pointer-events:none;
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-image:url("https://www.transparenttextures.com/patterns/noise.png");
+  opacity:0.03;
+  pointer-events:none;
 }

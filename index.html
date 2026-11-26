@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- Background blobs -->
+  <!-- Background design -->
   <div class="bg-blob blob-1"></div>
   <div class="bg-blob blob-2"></div>
   <div class="bg-blob blob-3"></div>
@@ -25,7 +25,7 @@
       <p class="tagline">Type what's in your fridge. Discover what's for dinner.</p>
     </header>
 
-    <!-- Search Section -->
+    <!-- Search section -->
     <section class="search-section">
       <div class="search-card">
         <label class="search-label">What ingredients do you have?</label>
@@ -36,7 +36,7 @@
               type="text"
               id="ingredientInput"
               class="search-input"
-              placeholder="e.g. egg, tomato, bread, chicken..."
+              placeholder="e.g. tomato, egg, onion, potato..."
               autocomplete="off"
             />
           </div>
@@ -45,6 +45,8 @@
             <span class="btn-arrow">→</span>
           </button>
         </div>
+
+        <!-- Suggested ingredients for quick search -->
         <div class="tag-suggestions">
           <span class="suggest-label">Try:</span>
           <button class="tag" onclick="fillAndSearch('chicken')">chicken</button>
@@ -56,10 +58,10 @@
       </div>
     </section>
 
-    <!-- Status / Loading -->
+    <!-- Loading and error messages -->
     <div class="status-area" id="statusArea"></div>
 
-    <!-- Results -->
+    <!-- Recipe results are displayed here -->
     <section class="results-section" id="resultsSection">
       <div class="results-header" id="resultsHeader"></div>
       <div class="recipes-grid" id="recipesGrid"></div>
@@ -67,7 +69,7 @@
 
   </div>
 
-  <!-- Modal -->
+  <!-- Popup to show recipe details -->
   <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
     <div class="modal" id="modal" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeModal()">✕</button>
